@@ -270,7 +270,8 @@ bibtex-to-plain-text-style"
       (cond
        ((and (equal "pages" x) (not (equal "" currData)))
 	(progn
-	  (setq currData (when (string-match "--" currData)
+	  (setq currData (when (and (not (equal currData nil))
+                                (string-match "--" currData))
 			   (replace-match "-" nil nil currData)))))
        ((equal "number" x)
 	(progn
